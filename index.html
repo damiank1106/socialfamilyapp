@@ -2,29 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy - Social Family App</title>
   <style>
     :root {
       color-scheme: light;
-      --background: #eef5ff;
-      --card: rgba(255, 255, 255, 0.94);
+
+      --background: #edf4ff;
+      --card: rgba(255, 255, 255, 0.96);
+      --card-soft: #f8fbff;
       --text: #111827;
       --muted: #4b5563;
       --primary: #2563eb;
+      --primary-dark: #1e3a8a;
       --border: #dbeafe;
+      --warning-bg: #fff7ed;
+      --warning-border: #fed7aa;
+      --success-bg: #f0fdf4;
+      --success-border: #bbf7d0;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       padding: 24px;
       background:
-        radial-gradient(circle at top left, #dbeafe, transparent 38%),
-        radial-gradient(circle at bottom right, #fce7f3, transparent 42%),
+        radial-gradient(circle at top left, #dbeafe, transparent 36%),
+        radial-gradient(circle at top right, #fae8ff, transparent 32%),
+        radial-gradient(circle at bottom right, #fce7f3, transparent 40%),
         var(--background);
       color: var(--text);
       font-family:
@@ -32,33 +43,831 @@
         BlinkMacSystemFont,
         "Segoe UI",
         Roboto,
+        Helvetica,
         Arial,
         sans-serif;
-      line-height: 1.65;
+      line-height: 1.68;
     }
 
     main {
-      width: min(900px, 100%);
+      width: min(940px, 100%);
       margin: 0 auto;
-      padding: 32px;
+      padding: clamp(22px, 5vw, 44px);
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: 0 18px 50px rgba(30, 64, 175, 0.12);
-      backdrop-filter: blur(16px);
+      border-radius: 26px;
+      box-shadow: 0 22px 60px rgba(30, 64, 175, 0.13);
+      backdrop-filter: blur(18px);
     }
 
     h1 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: clamp(2rem, 6vw, 3rem);
-      line-height: 1.15;
+      margin: 0 0 10px;
+      color: var(--text);
+      font-size: clamp(2.2rem, 7vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
     }
 
     h2 {
-      margin-top: 32px;
-      margin-bottom: 10px;
-      color: #1e3a8a;
+      margin: 38px 0 12px;
+      color: var(--primary-dark);
+      font-size: 1.42rem;
+      line-height: 1.3;
+    }
+
+    h3 {
+      margin: 24px 0 8px;
+      color: #1f2937;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+    }
+
+    ul {
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    a {
+      color: var(--primary);
+      font-weight: 650;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    .meta {
+      margin: 0 0 28px;
+      color: #64748b;
+    }
+
+    .summary,
+    .notice,
+    .warning {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border-radius: 17px;
+    }
+
+    .summary {
+      background: #eff6ff;
+      border: 1px solid var(--border);
+    }
+
+    .notice {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+    }
+
+    .warning {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+    }
+
+    .contents {
+      margin: 28px 0;
+      padding: 20px;
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .contents strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .contents ul {
+      columns: 2;
+      margin: 0;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 8px 8px 8px 0;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 750;
+      text-decoration: none;
+      box-shadow: 0 9px 22px rgba(37, 99, 235, 0.22);
+    }
+
+    .button:hover {
+      color: #ffffff;
+      opacity: 0.92;
+    }
+
+    .secondary-button {
+      background: #ffffff;
+      color: var(--primary);
+      border: 1px solid #93c5fd;
+      box-shadow: none;
+    }
+
+    .secondary-button:hover {
+      color: var(--primary-dark);
+      background: #eff6ff;
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin: 18px 0;
+    }
+
+    table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+      background: #ffffff;
+      border: 1px solid var(--border);
+    }
+
+    th,
+    td {
+      padding: 13px;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+      color: var(--muted);
+    }
+
+    th {
+      color: var(--text);
+      background: #eff6ff;
+    }
+
+    footer {
+      margin-top: 42px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: #64748b;
+      font-size: 0.93rem;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 12px;
+      }
+
+      main {
+        border-radius: 20px;
+      }
+
+      .contents ul {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Privacy Policy</h1>
+<p class="meta">
+  <strong>Social Family App</strong><br />
+  Effective date: June 7, 2026<br />
+  Last updated: June 7, 2026
+</p>
+
+<div class="summary">
+  <strong>Summary</strong><br />
+  Social Family App is a private, invitation-only social application for
+  approved family members. It allows family members to create accounts,
+  share posts and media, interact through comments and likes, use a shared
+  calendar, receive notifications, and optionally use Family AI.
+  Information is stored on users' Android devices and on a private
+  Raspberry Pi backend managed by the app administrator.
+</div>
+
+<div class="contents">
+  <strong>Contents</strong>
+
+  <ul>
+    <li><a href="#scope">Scope</a></li>
+    <li><a href="#accounts">Account information</a></li>
+    <li><a href="#content">User-created content</a></li>
+    <li><a href="#technical">Technical information</a></li>
+    <li><a href="#purposes">How information is used</a></li>
+    <li><a href="#sharing">Information sharing</a></li>
+    <li><a href="#ai">Family AI and DeepSeek</a></li>
+    <li><a href="#storage">Storage and synchronization</a></li>
+    <li><a href="#security">Security</a></li>
+    <li><a href="#children">Children and family use</a></li>
+    <li><a href="#retention">Retention</a></li>
+    <li><a href="#deletion">Deletion</a></li>
+    <li><a href="#choices">User choices</a></li>
+    <li><a href="#changes">Policy changes</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<section id="scope">
+  <h2>1. Scope of this Privacy Policy</h2>
+
+  <p>
+    This Privacy Policy explains how Social Family App collects, uses,
+    stores, transmits, shares, protects, retains, and deletes information.
+    It applies to the Android application, the private Raspberry Pi
+    backend, Family AI features, and related administrative functions.
+  </p>
+
+  <p>
+    Social Family App is not a public social network. Accounts are intended
+    only for family members approved or created by the administrator.
+  </p>
+</section>
+
+<section id="accounts">
+  <h2>2. Account and profile information</h2>
+
+  <p>
+    The following information may be required or processed to create and
+    operate an account:
+  </p>
+
+  <ul>
+    <li>Name or display name</li>
+    <li>Username</li>
+    <li>Password</li>
+    <li>Internal local account identifiers</li>
+    <li>Backend account identifiers or UUIDs</li>
+    <li>Account status, such as active, pending, disabled, or deleted</li>
+  </ul>
+
+  <p>
+    Users may also choose to add optional profile information such as:
+  </p>
+
+  <ul>
+    <li>Profile biography</li>
+    <li>Profile picture</li>
+    <li>Cover picture</li>
+  </ul>
+
+  <p>
+    Passwords are used for authentication. The backend is designed to store
+    password hashes rather than readable plain-text passwords. Users
+    should never send their password by email.
+  </p>
+
+  <p>
+    Social Family App does not require an email address as part of the
+    normal in-app account creation process. An email address is received
+    only if a user chooses to contact the developer for support, privacy,
+    or account-deletion purposes.
+  </p>
+</section>
+
+<section id="content">
+  <h2>3. User-created content</h2>
+
+  <p>
+    Users may voluntarily create, upload, or share content through the app,
+    including:
+  </p>
+
+  <ul>
+    <li>Text posts</li>
+    <li>Pictures and videos</li>
+    <li>Profile and cover images</li>
+    <li>Comments</li>
+    <li>Likes and other reactions</li>
+    <li>Calendar events and notes</li>
+    <li>Notification activity and read status</li>
+    <li>Family AI prompts, messages, and responses</li>
+    <li>Saved Family AI conversations</li>
+  </ul>
+
+  <p>
+    Content submitted to social features is visible to approved family
+    members as part of the intended functionality of the app.
+  </p>
+
+  <p>
+    Users are responsible for the content they submit. Users must not post
+    illegal, abusive, exploitative, sexually explicit, threatening,
+    harassing, or otherwise harmful content, or highly sensitive
+    information that should not be shared with other family users.
+  </p>
+</section>
+
+<section id="technical">
+  <h2>4. Technical and activity information</h2>
+
+  <p>
+    Social Family App processes limited technical and activity information
+    needed to authenticate users, synchronize devices, operate the service,
+    and troubleshoot errors. This may include:
+  </p>
+
+  <ul>
+    <li>Login and secure-session information</li>
+    <li>Authentication and refresh tokens</li>
+    <li>Hashed refresh-token records on the backend</li>
+    <li>Optional device or session information</li>
+    <li>Internet and Raspberry Pi server availability</li>
+    <li>Synchronization status and queue state</li>
+    <li>Synchronization cursors and change sequence identifiers</li>
+    <li>Dates and times associated with app actions</li>
+    <li>Notification read status</li>
+    <li>Family AI request and usage counters</li>
+    <li>Media type, filename metadata, size, and upload status</li>
+    <li>Error, reliability, maintenance, and diagnostic information</li>
+    <li>Storage usage and administrative system-status information</li>
+  </ul>
+
+  <p>
+    Network providers and infrastructure services may necessarily process
+    an IP address and basic connection metadata when the app communicates
+    with the server.
+  </p>
+</section>
+
+<section>
+  <h2>5. Information the app is not intended to collect</h2>
+
+  <p>
+    Based on the current app design, Social Family App is not intended to
+    collect:
+  </p>
+
+  <ul>
+    <li>Precise or approximate location</li>
+    <li>Device contacts or address book information</li>
+    <li>Microphone recordings or voice recordings</li>
+    <li>Financial or payment information</li>
+    <li>Health or fitness information</li>
+    <li>Advertising identifiers for targeted advertising</li>
+  </ul>
+
+  <p>
+    The current inspected application does not include advertising or
+    third-party analytics SDKs. If future versions add new permissions,
+    advertising, analytics, or other data practices, this policy and the
+    Google Play Data Safety declaration will be updated.
+  </p>
+</section>
+
+<section id="purposes">
+  <h2>6. How information is used</h2>
+
+  <p>Information is used to:</p>
+
+  <ul>
+    <li>Create, approve, authenticate, and manage family accounts</li>
+    <li>Display profile information to approved users</li>
+    <li>Publish and display posts, pictures, videos, and comments</li>
+    <li>Process likes and reactions</li>
+    <li>Provide calendar events and notifications</li>
+    <li>Store app information locally for offline access</li>
+    <li>Synchronize information between Android devices and the server</li>
+    <li>Resume pending actions after a connection interruption</li>
+    <li>Provide optional Family AI chat, posts, and replies</li>
+    <li>Prevent duplicate operations and synchronization errors</li>
+    <li>Maintain backups and system reliability</li>
+    <li>Detect, investigate, and resolve technical or security problems</li>
+    <li>Enforce administrative permissions and family-safety rules</li>
+  </ul>
+</section>
+
+<section id="sharing">
+  <h2>7. How information is shared</h2>
+
+  <h3>Approved family members</h3>
+
+  <p>
+    Information posted to social, profile, calendar, and interaction
+    features is shared with approved family users according to the app's
+    intended functionality.
+  </p>
+
+  <h3>Service providers</h3>
+
+  <p>
+    Limited information may be processed by providers used to operate the
+    app:
+  </p>
+
+  <ul>
+    <li>
+      <strong>Cloudflare:</strong> used to route and protect encrypted
+      HTTPS traffic between the Android app and the Raspberry Pi backend.
+      Cloudflare may process network and traffic metadata needed to provide
+      this service.
+    </li>
+
+    <li>
+      <strong>DeepSeek:</strong> used only when Family AI functionality
+      requires AI generation. DeepSeek may process prompts, relevant AI
+      conversation context, or comments submitted under Family AI posts.
+    </li>
+
+    <li>
+      <strong>GitHub Pages:</strong> used only to host public legal pages
+      such as this Privacy Policy and the account-deletion page. GitHub
+      Pages does not host Social Family App account information through
+      these pages.
+    </li>
+  </ul>
+
+  <p>
+    Social Family App does not sell personal information and does not use
+    personal information for third-party behavioral advertising.
+  </p>
+
+  <p>
+    Information may also be disclosed when reasonably necessary to comply
+    with applicable law, respond to a valid legal request, protect users,
+    investigate abuse, or protect the security and integrity of the app.
+  </p>
+</section>
+
+<section id="ai">
+  <h2>8. Family AI and DeepSeek</h2>
+
+  <p>
+    Social Family App includes an optional AI feature called
+    <strong>Family AI</strong>. Family AI identifies itself as an AI bot
+    and is not presented as a real family member.
+  </p>
+
+  <p>
+    When a user deliberately uses Family AI, the Raspberry Pi backend may
+    send the following information to DeepSeek:
+  </p>
+
+  <ul>
+    <li>The prompt or message submitted by the user</li>
+    <li>Relevant recent AI conversation context</li>
+    <li>Language or response-format instructions</li>
+    <li>
+      A comment placed under a Family AI post when an AI reply is requested
+    </li>
+    <li>
+      Instructions needed to generate an approved or scheduled AI post
+    </li>
+  </ul>
+
+  <p>
+    The app is designed not to send passwords, authentication tokens,
+    unrelated private posts, private media, complete account records, or
+    administrative credentials to DeepSeek.
+  </p>
+
+  <p>
+    Family AI may create family-safe posts and may reply only inside its own
+    posts or comment threads. It is not intended to comment on human-created
+    posts or send private messages.
+  </p>
+
+  <p>
+    Family AI conversations may be saved locally and on the backend when
+    the user chooses to save them. Users may delete saved conversations
+    using available app controls.
+  </p>
+
+  <p>
+    The DeepSeek API key is stored only in the private backend environment
+    and is not included in the Android application or shown to users.
+  </p>
+
+  <div class="warning">
+    Do not submit passwords, financial information, government
+    identification numbers, private health information, or other highly
+    sensitive personal information in Family AI prompts.
+  </div>
+</section>
+
+<section id="storage">
+  <h2>9. Storage, offline access, and synchronization</h2>
+
+  <p>Information may be stored in the following locations:</p>
+
+  <ul>
+    <li>
+      Locally on the user's Android device in the app's private Room
+      database and app-private media/cache storage
+    </li>
+
+    <li>
+      On the private Raspberry Pi backend and its PostgreSQL database
+    </li>
+
+    <li>
+      In backup files created for service recovery and maintenance
+    </li>
+  </ul>
+
+  <p>
+    Local storage allows users to view previously synchronized information
+    while offline and queue new actions for later synchronization.
+  </p>
+
+  <p>
+    When the connection returns, pending posts, comments, reactions, media,
+    profile changes, calendar events, notifications, and other supported
+    actions may synchronize automatically.
+  </p>
+
+  <p>
+    Administrative export packages may include a database copy and media
+    files stored in app-private or administrator-controlled storage.
+  </p>
+</section>
+
+<section id="security">
+  <h2>10. Security practices</h2>
+
+  <p>
+    Reasonable technical and organizational measures are used to protect
+    information, including:
+  </p>
+
+  <ul>
+    <li>Encrypted HTTPS communication</li>
+    <li>Cloudflare Tunnel for controlled remote connectivity</li>
+    <li>Private Raspberry Pi backend access</li>
+    <li>PostgreSQL restricted to the private Docker network</li>
+    <li>Password hashing</li>
+    <li>Hashed backend refresh tokens</li>
+    <li>Android Keystore-backed encryption for authentication tokens</li>
+    <li>Encrypted offline-session credentials where implemented</li>
+    <li>Administrative approval and role-based access controls</li>
+    <li>Restricted backend-only storage of the DeepSeek API key</li>
+    <li>Upload validation and file-size limits</li>
+    <li>Backups, synchronization diagnostics, and security monitoring</li>
+  </ul>
+
+  <p>
+    Some local app information, including the Room database, cached media,
+    and administrator exports, may be stored in app-private storage without
+    a separate application-level encryption layer. Android operating-system
+    protections and device security therefore also help protect locally
+    stored information.
+  </p>
+
+  <p>
+    No system can guarantee complete security. Users should protect their
+    passwords, secure their devices, and notify the administrator if they
+    suspect unauthorized account access.
+  </p>
+</section>
+
+<section id="children">
+  <h2>11. Children and family use</h2>
+
+  <p>
+    Social Family App is a private family application, not a public social
+    network. Accounts are created or approved by the family administrator.
+  </p>
+
+  <p>
+    A child or minor should use the app only with the knowledge and
+    permission of a parent or legal guardian. Parents and guardians are
+    responsible for deciding whether the app is appropriate for their
+    child and for supervising the child's use.
+  </p>
+
+  <p>
+    The app is intended to support family-safe communication. Illegal,
+    abusive, exploitative, sexually explicit, threatening, harassing, or
+    harmful content is prohibited. The administrator may edit or remove
+    inappropriate content and disable or delete accounts where necessary.
+  </p>
+
+  <p>
+    Users, particularly children, should not post home addresses, school
+    schedules, financial information, identification numbers, passwords,
+    or other sensitive personal information.
+  </p>
+
+  <p>
+    This section is not a representation that the app has received any
+    specific child-safety certification or independent legal compliance
+    review.
+  </p>
+</section>
+
+<section id="retention">
+  <h2>12. Data retention</h2>
+
+  <p>
+    Information is retained for as long as reasonably needed to:
+  </p>
+
+  <ul>
+    <li>Maintain an approved account</li>
+    <li>Provide requested app functionality</li>
+    <li>Synchronize devices</li>
+    <li>Resolve pending actions or technical errors</li>
+    <li>Protect service security and integrity</li>
+    <li>Maintain backups and service recovery</li>
+    <li>Comply with applicable legal obligations</li>
+  </ul>
+
+  <p>
+    Notifications may be removed according to the app's notification
+    retention process. Synchronization change records are intended to be
+    removed after their configured retention period, currently up to
+    approximately 90 days.
+  </p>
+
+  <p>
+    Deleted information may remain temporarily in backups, logs, or
+    synchronization records until the applicable backup or maintenance
+    cycle expires. Such retained copies are not intended for ordinary user
+    access or continued social display.
+  </p>
+
+  <p>
+    Because backup retention may change as the service is maintained,
+    users may contact the developer for current information concerning a
+    particular deletion request.
+  </p>
+</section>
+
+<section id="deletion">
+  <h2>13. Content and account deletion</h2>
+
+  <h3>Deleting individual content</h3>
+
+  <p>
+    The app provides controls for deleting supported content such as posts,
+    comments, media, calendar events, notifications, and saved Family AI
+    conversations.
+  </p>
+
+  <p>
+    The current design uses hard deletion for supported deleted content,
+    meaning that deleted content is intended to be permanently removed from
+    active application storage rather than merely hidden as recoverable
+    content.
+  </p>
+
+  <h3>Deleting an account</h3>
+
+  <p>
+    Users may request deletion of their Social Family App account and
+    associated data.
+  </p>
+
+  <p>
+    Use the public account-deletion page:
+  </p>
+
+  <p>
+    <a class="button" href="./account-deletion.html">
+      Request Account Deletion
+    </a>
+  </p>
+
+  <p>
+    Users may also email:
+    <a
+      href="mailto:dedeveloper@gmail.com?subject=Social%20Family%20App%20Account%20Deletion%20Request"
+    >
+      dedeveloper@gmail.com
+    </a>
+  </p>
+
+  <p>A deletion request should include:</p>
+
+  <ul>
+    <li>The account username</li>
+    <li>The display name</li>
+    <li>A clear statement requesting permanent account deletion</li>
+  </ul>
+
+  <div class="warning">
+    Never send your password by email. The developer will never ask you to
+    email your password.
+  </div>
+
+  <p>
+    The administrator may need to verify the identity or ownership of the
+    account before processing deletion to prevent unauthorized requests.
+  </p>
+
+  <p>
+    Account deletion may remove the account, profile information, posts,
+    comments, reactions, pictures, videos, calendar events, notifications,
+    saved Family AI conversations, and other information associated with
+    the account, subject to temporary backup, security, or legally required
+    retention.
+  </p>
+</section>
+
+<section id="choices">
+  <h2>14. User choices and privacy rights</h2>
+
+  <p>
+    Depending on applicable law and the nature of the request, users may
+    ask to:
+  </p>
+
+  <ul>
+    <li>Access information associated with their account</li>
+    <li>Correct inaccurate account or profile information</li>
+    <li>Delete specific content</li>
+    <li>Delete their account and associated information</li>
+    <li>Receive information about how their data is handled</li>
+    <li>Stop using optional Family AI functionality</li>
+  </ul>
+
+  <p>
+    Privacy requests may be sent to:
+    <a href="mailto:dedeveloper@gmail.com">
+      dedeveloper@gmail.com
+    </a>
+  </p>
+</section>
+
+<section>
+  <h2>15. Third-party links and services</h2>
+
+  <p>
+    The app or its legal pages may contain links to third-party services.
+    This Privacy Policy does not control the independent privacy practices
+    of Cloudflare, DeepSeek, GitHub, Google Play, device manufacturers, or
+    other third parties.
+  </p>
+
+  <p>
+    Users should review the privacy terms of third-party services they
+    choose to use.
+  </p>
+</section>
+
+<section id="changes">
+  <h2>16. Changes to this Privacy Policy</h2>
+
+  <p>
+    This Privacy Policy may be updated when the app's features, data
+    practices, service providers, security measures, or legal requirements
+    change.
+  </p>
+
+  <p>
+    The effective date and last-updated date at the top of this page will
+    be revised when material changes are published.
+  </p>
+
+  <p>
+    Significant changes may also be communicated inside the app where
+    appropriate.
+  </p>
+</section>
+
+<section id="contact">
+  <h2>17. Contact</h2>
+
+  <p>
+    For privacy questions, account-deletion requests, data-access requests,
+    security concerns, or other privacy matters, contact:
+  </p>
+
+  <p>
+    <strong>Social Family App Developer</strong><br />
+    Email:
+    <a href="mailto:dedeveloper@gmail.com">
+      dedeveloper@gmail.com
+    </a>
+  </p>
+
+  <p>
+    <a class="button" href="mailto:dedeveloper@gmail.com">
+      Contact Developer
+    </a>
+
+    <a
+      class="button secondary-button"
+      href="./account-deletion.html"
+    >
+      Account Deletion
+    </a>
+  </p>
+</section>
+
+<footer>
+  © 2026 Social Family App. All rights reserved.<br />
+  Social Family App is intended for private, invitation-only family use.
+</footer>
+  </main>
+</body>
+</html>
       font-size: 1.35rem;
     }
 
