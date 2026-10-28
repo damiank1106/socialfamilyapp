@@ -50,7 +50,6 @@
         <li><a href="#data">Data we process</a></li>
         <li><a href="#use">How data is used</a></li>
         <li><a href="#translation">OpenAI translation</a></li>
-        <li><a href="#family-ai">Remaining Family AI features</a></li>
         <li><a href="#sharing">Sharing and service providers</a></li>
         <li><a href="#storage">Storage and security</a></li>
         <li><a href="#reviewer">Apple Reviewer isolation</a></li>
@@ -112,7 +111,6 @@
         <li>Provide calendar, notification, offline, and synchronization features</li>
         <li>Send requested push notifications through APNs</li>
         <li>Provide AI translation only when the affected user has allowed it</li>
-        <li>Provide the limited Family AI social features described below</li>
         <li>Prevent duplicate requests, abuse, unauthorized access, and data loss</li>
         <li>Maintain backups and diagnose reliability or security problems</li>
         <li>Apply administrator permissions, moderation, and room isolation</li>
@@ -126,29 +124,16 @@
         <li>If the user allows translation, the text being translated and the instructions needed to perform the translation may be sent from the Raspberry Pi backend to OpenAI.</li>
         <li>If the user denies permission, has not yet made a choice, or later turns permission off, that user's content is not sent to OpenAI and AI translation is disabled for that user.</li>
         <li>A user can review or change this choice at any time under <strong>Settings → Privacy &amp; Data</strong>.</li>
-        <li>Translation output, translation status, language information, and limited usage records may be stored with the related content so the translation can be displayed and retried when necessary.</li>
+        <li>Translation output, translation status, and language information may be stored with the related content so the translation can be displayed and retried when necessary.</li>
       </ul>
       <p>The OpenAI API credential is held only by the private backend and is not included in the iOS app. OpenAI receives the content only to provide the requested translation service; Social Family App does not provide it for advertising or cross-app tracking. The Apple Reviewer must make the same consent choice inside the isolated review environment.</p>
     </section>
 
-    <section id="family-ai">
-      <h2>5. Remaining Family AI features and DeepSeek</h2>
-      <p><strong>Family AI Chat has been removed from the app.</strong> The backend still supports a limited Family AI social profile that can create administrator-controlled social posts and, when enabled by the Administrator, generate replies to comments placed on Family AI's own posts. These remaining generation features use DeepSeek.</p>
-      <p>When one of those features is enabled, the backend may send DeepSeek:</p>
-      <ul>
-        <li>Instructions and a topic needed to generate a Family AI social post</li>
-        <li>The relevant comment placed on a Family AI post and limited surrounding context needed to generate a reply</li>
-        <li>Language, safety, and response-format instructions</li>
-      </ul>
-      <p>Ordinary user posts, General Chat messages, passwords, authentication tokens, private media, full account records, and administrator credentials are not intended to be sent to DeepSeek. The DeepSeek API credential is stored only on the Raspberry Pi backend. There are no saved Family AI Chat conversations because that feature is no longer available.</p>
-    </section>
-
     <section id="sharing">
-      <h2>6. Sharing and service providers</h2>
+      <h2>5. Sharing and service providers</h2>
       <p>We do not sell personal data, use it for targeted advertising, or share it with data brokers. We do not use data to track users across other companies' apps or websites. Data is disclosed only as needed for app functionality, security, legal compliance, or the following services:</p>
       <ul>
         <li><strong>OpenAI:</strong> processes post, comment, or General Chat text for GPT-6.1 Sol translation only after the affected user explicitly allows it.</li>
-        <li><strong>DeepSeek:</strong> processes the limited Family AI generation data described above when those administrator-controlled features are enabled.</li>
         <li><strong>Apple / APNs:</strong> processes device tokens and notification payloads to deliver push notifications to Apple devices. Notification previews may contain app activity or message information according to the user's device-notification settings.</li>
         <li><strong>Cloudflare:</strong> routes and protects encrypted HTTPS traffic between the iOS app and Raspberry Pi backend and may process IP addresses, request metadata, and security signals needed for that service.</li>
         <li><strong>GitHub Pages:</strong> hosts this public Privacy Policy and the account-deletion information page. Those pages do not host Social Family App accounts or family content.</li>
@@ -157,7 +142,7 @@
     </section>
 
     <section id="storage">
-      <h2>7. Storage, synchronization, and security</h2>
+      <h2>6. Storage, synchronization, and security</h2>
       <h3>On the iPhone</h3>
       <ul>
         <li><strong>SwiftData</strong> stores synchronized app records for offline use and responsive display.</li>
@@ -173,13 +158,13 @@
     </section>
 
     <section id="reviewer">
-      <h2>8. Apple Reviewer isolation</h2>
+      <h2>7. Apple Reviewer isolation</h2>
       <p>The Apple Reviewer account operates only in a separate fictional review environment. Backend room scoping prevents that account from viewing, receiving, editing, reacting to, or otherwise accessing production family profiles, posts, comments, General Chat messages, media, calendar events, or notifications. Production users likewise do not see review-room data.</p>
       <p>Review-room data is stored on the same privately managed backend but is assigned to a separate room and filtered on every supported operation. The reviewer account follows the same OpenAI consent rule and can delete its account and associated review-room data from within the app.</p>
     </section>
 
     <section id="retention">
-      <h2>9. Retention</h2>
+      <h2>8. Retention</h2>
       <ul>
         <li>Active account, profile, post, comment, General Chat, reaction, media, and calendar data is retained while the account or content remains active, or until it is deleted using the available app controls.</li>
         <li>Notification records are currently removed by backend maintenance after approximately 7 days. Device registrations and APNs tokens are retained while needed for push delivery and are removed when the account is deleted; invalid or replaced tokens may be disabled earlier.</li>
@@ -191,7 +176,7 @@
     </section>
 
     <section id="deletion">
-      <h2>10. Account and data deletion</h2>
+      <h2>9. Account and data deletion</h2>
       <p>Normal users and the Apple Reviewer can permanently delete their account in the app without emailing support:</p>
       <p><strong>Settings → Privacy &amp; Data → Delete Account</strong></p>
       <p>The app requires clear confirmation and identity verification before deletion. Once confirmed, the backend permanently removes the account from the active service together with associated:</p>
@@ -202,7 +187,7 @@
         <li>Calendar events and notes</li>
         <li>Notifications, notification state, APNs tokens, and device registrations</li>
         <li>Access/refresh sessions and refresh-token records</li>
-        <li>AI usage, translation, synchronization, and other user-linked records</li>
+        <li>OpenAI translation status and language information, synchronization history, and other user-linked records</li>
         <li>Pending or resumable upload sessions and user-linked temporary files</li>
       </ul>
       <p>The app clears the deleted account's local session and app data from the device. Historical copies may remain temporarily in recovery backups until normal backup rotation, as explained above. Deletion is irreversible.</p>
@@ -211,7 +196,7 @@
     </section>
 
     <section id="choices">
-      <h2>11. Your choices</h2>
+      <h2>10. Your choices</h2>
       <ul>
         <li>Allow, deny, or later change OpenAI translation permission under <strong>Settings → Privacy &amp; Data</strong>.</li>
         <li>Edit or delete your own supported posts, comments, and other content.</li>
@@ -223,12 +208,12 @@
     </section>
 
     <section id="children">
-      <h2>12. Children and family use</h2>
+      <h2>11. Children and family use</h2>
       <p>Social Family App is designed for a private family group, not for public use by unknown users. The Administrator controls account approval. Parents or guardians are responsible for deciding whether and how a child in their family may use the app and for supervising the content shared in the family environment. Users should not post sensitive information that should not be shared with other approved family members.</p>
     </section>
 
     <section id="changes">
-      <h2>13. Policy changes and contact</h2>
+      <h2>12. Policy changes and contact</h2>
       <p>This policy may be updated when the app, backend, service providers, or legal requirements change. The date at the top identifies the latest revision. Material changes will be presented through an appropriate app or policy notice where required.</p>
       <p>For privacy questions or assistance, contact:<br /><strong>Social Family App Developer</strong><br />Email: <a href="mailto:dedeveloper@gmail.com">dedeveloper@gmail.com</a></p>
     </section>
